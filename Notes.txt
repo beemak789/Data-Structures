@@ -1,0 +1,44 @@
+
+// var foodList = new LinkedList(),
+//     pizzaNode = new Node("pizza", null);
+// console.log("the food list--->", foodList);  //the food list---> LinkedList { head: null, tail: null, _length: 0 }
+// console.log("the pizza node list---->", pizzaNode); //Node { element: 'pizza', next: null }
+
+
+// LinkedList.prototype = {
+//     addToHead: function(element) {
+//         //Right now there is just a head and tail on the linked list but no value to it
+//         //The head and tail is "null", so-to-speak
+//         var newNode = new Node (element);
+
+//         //If linked list is not empty and there is already a head [but you wat ]
+//         if (this.head) {
+//             newNode.next = this.head;
+//             this.head = newNode;
+//         } else {
+//             //If the linked list and there's only a head and tail that's unassigned, then assign the newNode to the head*
+//             this.head = newNode
+//         }
+//     },
+//     addToTail: function(element) {
+//         var newNode = new Node(element);
+//        //handle case for when linked list is not empty
+//        if (this.tail) {
+//            this.tail.next = newNode;
+//        }
+//        //if it IS empty;
+//        this.tail = newNode;
+//     },
+
+//     insert: function(position, element) {},
+//     find: function(element) {},
+//     findPrevious: function(element) {},
+//     removeHead: function() {},
+//     removeTail: function() {},
+//     remove: function(element) {},
+//     removeAt: function(position) {},
+//     indexOf: function(element) {},
+//     isEmpty: function() {},
+//     size: function() {},
+//     display: function() {}
+// };

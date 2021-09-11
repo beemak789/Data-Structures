@@ -1,37 +1,19 @@
 function Node(element) {
+    //The node always has the value and next pointer -- this node is empty, in which we will fill up later in the linkedlist
     this.element = element;
     this.next = null;
 }
-
+//This just represents the node structure
+//-----------------------------------------------------------------------------------------
 function LinkedList() {
+    //The actual linked list only cares about 2 properties: the head and tail*
+    //Also good to add the tail
+    //The head and tail are nodes with empty values*
     this.head = null;
     this.tail = null; // you can choose not to add tail
-
     this._length = 0;
 }
-
-/*
-var foodList = new LinkedList(),
-    pizzaNode = new Node("pizza", null);
-console.log(foodList);
-console.log(pizzaNode);
-*/
-
-LinkedList.prototype = {
-    addToHead: function(element) {},
-    addToTail: function(element) {},
-    insert: function(position, element) {},
-    find: function(element) {},
-    findPrevious: function(element) {},
-    removeHead: function() {},
-    removeTail: function() {},
-    remove: function(element) {},
-    removeAt: function(position) {},
-    indexOf: function(element) {},
-    isEmpty: function() {},
-    size: function() {},
-    display: function() {}
-};
+//This just represents the list, or container we can put our nodes into. Of course, it needs to have a head and tail. You must always have the head (tail is optional). You have to set the tail to a value if something is not already there*
 
 LinkedList.prototype.size = function() {
     return this._length;
@@ -40,12 +22,12 @@ LinkedList.prototype.size = function() {
 LinkedList.prototype.isEmpty = function() {
     return this._length === 0;
 };
-
+//---------------------- ADD TO HEAD -------------------------------------------
 LinkedList.prototype.addToHead = function(element) {
     //create a new Node
     var newNode = new Node(element);
     // Handle case for when linked list is not empty
-    if (this.head) { 
+    if (this.head) {
         newNode.next = this.head;
         //this.head = newNode;
     } else { // Linked list is empty
@@ -59,14 +41,14 @@ LinkedList.prototype.addToHead = function(element) {
     this._length++;
 };
 
-/*
 var foodList = new LinkedList();
-foodList.addToHead("pizza");
-console.log(foodList);
 
-foodList.addToHead("Spinach")
-console.log(foodList);
-*/
+// foodList.addToHead("pizza");
+// console.log("PIZZA ADDED TO THE HEAD--->", foodList);
+
+// foodList.addToHead("Spinach")
+// console.log("SPINACH ADDED TO THE HEAD --->", foodList);
+// -----------------------------------------------------------------------------
 
 LinkedList.prototype.addToTail = function(element) {
     //create a new Node
@@ -76,6 +58,7 @@ LinkedList.prototype.addToTail = function(element) {
         //if there is already a tail, change the pointers to point to new node
         //if update the currently existing tails next to point to new node
         this.tail.next = newNode;
+        //The tail is the newNode*
         //then finally update the linked list tail to be the new node
         //this.tail = newNode;
     } else {
@@ -90,10 +73,13 @@ LinkedList.prototype.addToTail = function(element) {
     this._length++;
 };
 
-/*
-foodList.addToTail("Pasta");
-console.log(foodList);
-*/
+
+// foodList.addToTail("Pasta");
+// console.log("ADD TO TAIL--->", foodList);
+// foodList.addToTail("Ramen");
+// console.log("SECOND ADD TO TAIL---->", foodList);
+// foodList.addToTail("Cupcakes");
+// console.log("THIRD ADD TO TAIL---->", foodList);
 
 LinkedList.prototype.removeHead = function() {
     //if there is a head, then there is a node or possibly nodes in the list
@@ -104,13 +90,13 @@ LinkedList.prototype.removeHead = function() {
         var value = this.head.element;
 
         //case 1: there are multiple nodes
-        if(this.head.next != null) { 
+        if(this.head.next != null) {
             var temp = this.head;
             // there is another node so set that to the head
             this.head = this.head.next;
             //set the temp (previous) to null
             temp = null;
-        } else { 
+        } else {
             //this.head.next is a null, means there is only one node
             this.head = null;
             this.tail = null;
@@ -248,7 +234,7 @@ console.log(peopleList);
 LinkedList.prototype.indexOf = function(element) {
     var currentNode = this.head,
         index = 0;
-    
+
     while(currentNode) {
         if(currentNode.element === element) {
             return index;
@@ -276,7 +262,7 @@ LinkedList.prototype.removeAt = function(position) {
         }
         //if its not the head or tail then search inbetween linked list.
         //being from head.
-        while(currentNode) { 
+        while(currentNode) {
             console.log("current index: " + currentIndex);
             //if the next is equal to position then update the current header
             if(nextIndex === position) {
